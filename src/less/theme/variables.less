@@ -1,0 +1,63 @@
+// Colors
+// --------------------------------------------------
+@brand-primary:         #d16344;
+
+@text-color:            @gray-darker;
+@headings-color:        @text-color;
+@headings-hover-color:  darken(@headings-color, 15%);
+
+@page-bg:               #fff;
+
+@category-color-1:      #83555E;
+@category-color-2:      #b2bb91;
+@category-color-3:      #d7bf5e;
+@category-color-4:      #f1e8b4;
+
+// Typography
+// --------------------------------------------------
+@font-family-sans-serif:  "PT Sans", Helvetica, Arial, sans-serif;
+@font-family-serif:       "PT Serif", "Times New Roman", Times, serif;
+@headings-font-family:    "PT Sans Narrow", @font-family-sans-serif;
+
+@font-size-base:          16px;
+
+@font-size-h1:            (@font-size-base * 3);    // 48px
+@font-size-h2:            (@font-size-base * 3);    // 48px
+@font-size-h3:            (@font-size-base * 2.5);  // 40px
+@font-size-h4:            (@font-size-base * 2);    // 32px
+@font-size-h5:            (@font-size-base * 1.5);  // 24px
+@font-size-h6:            (@font-size-base * 1.5);  // 24px
+
+@line-height-base:        1.5;
+@headings-font-weight:    700;
+@headings-line-height:    @line-height-base;
+
+@font-size-widget-title:  (@font-size-base * 1.5);
+
+// Components
+// --------------------------------------------------
+@border-radius-base:        10px;
+@border-radius-large:       15px;
+@border-radius-small:       5px;
+
+@size-circle-icon-base:   (@line-height-computed * 1.75);
+@size-circle-icon-large:  (@line-height-computed * 4);
+
+@size-indicator:          (@line-height-computed * 3);
+
+@decorative-border-width: 5px;
+
+
+// Forms
+// --------------------------------------------------
+@input-color:                    @gray-darker;
+
+// Container sizes
+// --------------------------------------------------
+@container-large-desktop:      1400px;
+
+// Media queries breakpoints
+// --------------------------------------------------
+@screen-sm:                  (@container-tablet + @size-indicator);
+@screen-md:                  (@container-desktop + @size-indicator);
+@screen-lg:                  (@container-large-desktop + @size-indicator);

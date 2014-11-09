@@ -1,0 +1,129 @@
+.drop-shadow {
+  .box-shadow(1px 1px 5px rgba(0,0,0,0.2));
+}
+
+.subtle-transition(@property) {
+  .transition(@property 0.1s linear 0);
+}
+
+.horizontal-list {
+  margin-left: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.icons-list {
+  margin-left: 0;
+  list-style: none;
+
+  li {
+    line-height: @size-circle-icon-base;
+
+    a {
+      display: inline-block;
+
+      &:hover .icon {
+        // Use the same color adjustment as a button
+        background-color: darken(@link-color, 8%);
+      }
+    }
+
+    .icon {
+      .circle-icon-base(@link-color);
+      margin-right: (@grid-gutter-width / 4);
+    }
+  }
+}
+
+.meta-data-list {
+  .horizontal-list;
+  font-family: @font-family-sans-serif;
+  color: @gray-light;
+
+  li {
+    margin-right: (@grid-gutter-width / 2);
+
+    &:before {
+      margin-right: (@grid-gutter-width / 6);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      color: @gray-light;
+
+      &:hover {
+        // Use the same color adjustment as the default link color
+        color: darken(@gray-light, 15%);
+      }
+    }
+  }
+}
+
+.circle-icon-base(@circle-color) {
+  .make-circle-icon(@size-circle-icon-base, @circle-color);
+}
+
+.circle-icon-large(@circle-color) {
+  .make-circle-icon(@size-circle-icon-large, @circle-color);
+}
+
+.make-circle-icon(@size, @circle-color) {
+  display: inline-block;
+  width: @size;
+  height: @size;
+  background-color: @circle-color;
+  color: #fff;
+  text-align: center;
+  line-height: @size;
+  border-radius: (@size / 2);
+  .subtle-transition(background-color);
+}
+
+.make-indicator(@color) {
+  position: absolute;
+  top: 0;
+  left: -((2 * @grid-gutter-width) + (@size-indicator / 2));
+  width: @size-indicator;
+  height:  @size-indicator;;
+  line-height: @size-indicator;
+  text-align: center;
+  color: #fff;
+  background-color: @color;
+  border-top-right-radius: @border-radius-base;
+  border-bottom-right-radius: @border-radius-base;
+  .drop-shadow;
+  .subtle-transition(background-color);
+
+  @media (max-width:@screen-md-max) {
+    left: -((@grid-gutter-width * 1.5) + (@size-indicator / 2));
+  }
+
+  @media (max-width:@screen-xs-max) {
+    left: -(@grid-gutter-width / 2);
+  }
+
+  .shadow {
+    position: absolute;
+    bottom: -(@size-indicator / 2);
+    left: 0;
+    width: 0;
+    height: 0;
+    .make-shadow-color(@color);
+    border-top: (@size-indicator / 2) solid @shadow-color;
+    border-left: (@size-indicator / 2) solid transparent;
+    .subtle-transition(border-top-color);
+
+    @media (max-width:@screen-xs-max) {
+      display: none;
+    }
+  }
+}
+
+.make-shadow-color(@color) {
+  @shadow-color: desaturate(darken(@color, 15%), 20%);
+}

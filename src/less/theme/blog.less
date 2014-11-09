@@ -1,0 +1,264 @@
+// Layout
+// --------------------------------------------------
+body {
+  // Background image from Subtlepatterns.com
+  background-image: url(../images/clean_textile.png);
+
+  @media (max-width:@screen-xs-max) {
+    background-image: none;
+  }
+
+  // Fix to prevent css transitions on page load
+  &.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
+}
+
+.page-bg {
+  padding-left: (@grid-gutter-width * 2);
+  padding-right: (@grid-gutter-width * 2);
+  background-color: @page-bg;
+  .box-shadow(1px 1px 10px rgba(0,0,0,0.1));
+
+  @media (max-width:@screen-md-max) {
+    padding-left: (@grid-gutter-width * 1.5);
+    padding-right: (@grid-gutter-width * 1.5);
+  }
+
+  @media (max-width:@screen-xs-max) {
+    padding-left: (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+    .box-shadow(none);
+  }
+}
+
+// Header
+// --------------------------------------------------
+.site-header {
+  padding-top: @line-height-computed;
+  margin-bottom: @line-height-computed;
+
+  @media (max-width:@screen-sm-max) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width:@screen-xs-max) {
+    position: relative;
+    padding-top: (@line-height-computed / 4);
+  }
+}
+
+.site-name {
+  @media (max-width:@screen-sm-max) {
+    text-align: center;
+  }
+
+  h1, .h1 {
+    margin-bottom: 0;
+    line-height: @size-circle-icon-large;
+  }
+
+  a {
+    display: inline-block;
+    color: @link-color;
+
+    .logo {
+      .circle-icon-large(@link-color);
+      margin-right: (@grid-gutter-width / 2);
+    }
+
+    &:hover {
+      color: @link-hover-color;
+
+      .logo {
+        // Use the same color adjustment as a button
+        background-color: darken(@link-color, 8%);
+      }
+    }
+  }
+}
+
+// Navigation
+// --------------------------------------------------
+.site-nav {
+  ul {
+    .horizontal-list;
+    margin-bottom: 0;
+    text-align: right;
+    line-height: @size-circle-icon-large;
+
+    @media (max-width:@screen-sm-max) {
+      text-align: center;
+    }
+
+    li {
+      border-radius: @border-radius-base;
+      line-height: (@line-height-computed * 2);
+
+      a {
+        display: inline-block;
+        padding: 0 (@grid-gutter-width / 2);
+        text-decoration: none;
+        color: @text-color;
+      }
+
+      &:hover {
+        background-color: @link-color;
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// Main content
+// --------------------------------------------------
+main {
+  padding-top: (@line-height-computed * 2);
+  margin-bottom: (@line-height-computed * 3);
+
+  @media (max-width:@screen-sm-max) {
+    padding-top: @line-height-computed;
+  }
+}
+
+// Sidebar
+// --------------------------------------------------
+.sidebar {
+  padding-top: (@line-height-computed * 2);
+
+  @media (max-width:@screen-sm-max) {
+    margin-top: (@line-height-computed * 3);
+    padding-top: @line-height-computed;
+    border-top: @decorative-border-width solid @gray-lighter;
+  }
+
+  @media (min-width:@screen-sm-min) and (max-width:@screen-sm-max) {
+    margin-left: -(@grid-gutter-width);
+    margin-right: -(@grid-gutter-width);
+    padding-left: (@grid-gutter-width * 1.5);
+    padding-right: (@grid-gutter-width * 1.5);
+  }
+
+  aside {
+    padding-left: (@grid-gutter-width * 2);
+
+    @media (max-width:@screen-md-max) {
+      padding-left: (@grid-gutter-width * 1.5);
+    }
+
+    @media (max-width:@screen-sm-max) {
+      padding-left: 0;
+    }
+  }
+}
+
+// Footer
+// --------------------------------------------------
+.site-footer {
+  margin-left: -(@grid-gutter-width * 2);
+  margin-right: -(@grid-gutter-width * 2);
+  padding: @line-height-computed (@grid-gutter-width * 1.5);
+  color: #fff;
+  background-color: @brand-primary;
+
+  @media (max-width:@screen-md-max) {
+    margin-left: -(@grid-gutter-width * 1.5);
+    margin-right: -(@grid-gutter-width * 1.5);
+    padding-left: @grid-gutter-width;
+    padding-right: @grid-gutter-width;
+  }
+
+  @media (max-width:@screen-xs-max) {
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .icons-list li a .icon,
+  .icons-list li a:hover .icon {
+    color: @brand-primary;
+    background-color: #fff;
+  }
+}
+
+// Media
+// --------------------------------------------------
+figure {
+  img {
+    .img-responsive();
+  }
+}
+
+.img-bordered {
+  border: 20px solid #fff;
+  .drop-shadow;
+}
+
+// Article
+// --------------------------------------------------
+article {
+  header {
+    position: relative;
+
+    @media (max-width:@screen-xs-max) {
+      padding-left: @size-indicator;
+    }
+
+    .indicator {
+      .make-indicator(@brand-primary);
+    }
+
+    .article-link {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+
+        h2 {
+          color: @headings-hover-color;
+        }
+
+        .indicator {
+          // Use the same color adjustment as a button
+          background-color: darken(@brand-primary, 8%);
+
+          .shadow {
+            .make-shadow-color(@brand-primary);
+            border-top-color: darken(@shadow-color, 8%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.comments {
+  header {
+    position: relative;
+
+    .indicator {
+      .make-indicator(@brand-primary);
+
+      @media (max-width:@screen-xs-max) {
+        display: none;
+      }
+    }
+  }
+
+  .comment {
+    margin-bottom: (@line-height-computed * 2);
+    padding-top: @line-height-computed;
+    border-top: @decorative-border-width solid @gray-lighter;
+
+    .message {
+      margin-bottom: @line-height-computed;
+    }
+  }
+}
