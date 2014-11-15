@@ -64,6 +64,10 @@ ol {
   margin-left: (@grid-gutter-width * 2);
   margin-bottom: @line-height-computed;
   padding-left: 0;
+
+  @media (max-width: @screen-xs-min) {
+    margin-left: @grid-gutter-width;
+  }
 }
 
 ul {
@@ -76,6 +80,10 @@ blockquote {
   padding-right: @grid-gutter-width;
   padding-bottom: (@line-height-computed / 2);
   padding-left: ((@grid-gutter-width * 2) - @decorative-border-width);
+
+  @media (max-width: @screen-xs-min) {
+    padding-left: (@grid-gutter-width - @decorative-border-width);
+  }
 }
 
 figure {
