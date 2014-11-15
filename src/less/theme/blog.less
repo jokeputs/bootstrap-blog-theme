@@ -73,7 +73,7 @@ body {
     margin-bottom: 0;
     line-height: @size-circle-icon-large;
 
-    @media (max-width:@screen-sm-min) {
+    @media (max-width:@screen-xs-min) {
       line-height: (@line-height-computed * 3);
       font-size: (@font-size-base * 2);
     }
@@ -87,7 +87,7 @@ body {
       .circle-icon-large(@link-color);
       margin-right: (@grid-gutter-width / 2);
 
-      @media (max-width:@screen-sm-min) {
+      @media (max-width:@screen-xs-min) {
         width: (@line-height-computed * 3);
         height: (@line-height-computed * 3);
         line-height: (@line-height-computed * 3);
@@ -119,7 +119,7 @@ body {
       text-align: center;
     }
 
-    @media (max-width:@screen-xs-max) {
+    @media (max-width:@screen-xs-min) {
       margin-top: (@line-height-computed / 4);
       line-height: @line-height-base;
     }
@@ -134,7 +134,7 @@ body {
         text-decoration: none;
         color: @text-color;
 
-        @media (max-width:@screen-xs-max) {
+        @media (max-width:@screen-xs-min) {
           padding: 0 (@grid-gutter-width / 4);
         }
       }
